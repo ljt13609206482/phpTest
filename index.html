@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <button id="count-btn">扫码计数</button>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+    $(function () {
+        $("#count-btn").click(function () {
+            var params = {
+                activityId: 666,
+                activityName: "国美商城",
+                url: 'www.guomei.com'
+            };
+            $.ajax({
+                type: "POST",
+                data: params,
+                url: "http://127.0.0.1:8012/activityCount.php",
+                success: function (data) {
+                    console.log(data);
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>
